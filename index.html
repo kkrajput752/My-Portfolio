@@ -4,270 +4,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kundan | Portfolio</title>
+    <meta name="description" content="Kundan Krishnan - AI and Computer Science Student">
+    <title>Kundan Krishnan | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="dark">
+
+    <!-- FIXED BACKGROUND PHOTO -->
+    <div class="photo-background">
+        <img src="kkun.jpeg" id="backgroundPhoto" alt="Kundan Krishnan">
+    </div>
+
+    <div class="photo-overlay"></div>
 
     <!-- INTRO ANIMATION -->
-    <div class="intro">
-        <h1>Welcome to <span>My</span></h1>
-        <h1 class="second">Portfolio<span>.</span></h1>
+    <div class="intro" id="intro">
+        <h1>Welcome to My</h1>
+        <h1 class="intro-second">Portfolio<span>.</span></h1>
     </div>
 
     <!-- NAVBAR -->
-    <nav>
-        <a class="logo" href="#home">&lt;K/&gt; Kundan</a>
+    <header class="navbar">
 
-        <button id="menuBtn">☰</button>
+        <a href="#home" class="logo">KK<span>.</span></a>
 
-        <div id="navLinks">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">
+            ☰
+        </button>
+
+        <nav id="navLinks">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#education">Education</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
+        <button id="themeToggle" class="theme-btn">
+            ☀️ Light
+        </button>
 
-        <div class="copy">
+    </header>
 
-            <p class="eyebrow">HELLO, I'M KUNDAN</p>
+    <main>
 
-            <h1>
-                Welcome to<br>
-                <span>My</span><br>
-                Portfolio.
-            </h1>
+        <!-- HOME -->
+        <section class="hero" id="home">
 
-            <h2>I'm Kundan — <span id="typing"></span></h2>
+            <div class="hero-content reveal">
 
-            <p class="desc">
-                BS-MS (AI & CS) student at IIT Patna<br>
-                BTech CSE (AI) student at Lucknow University<br>
-                Aspiring AI/ML Engineer · Developer
-            </p>
+                <p class="eyebrow">HELLO, WORLD! I'M</p>
 
-            <div class="buttons">
-                <a class="btn black" href="#about">Discover More ↘</a>
+                <h1>
+                    KUNDAN
+                    <span>KRISHNAN.</span>
+                </h1>
 
-                <a class="btn outline" href="resume.pdf" download>
-                    Download Resume ↓
-                </a>
-            </div>
+                <h2>
+                    I'm a <span id="typing"></span><span class="cursor">|</span>
+                </h2>
 
-            <div class="social">
-                <a href="https://github.com/kkrajput752" target="_blank">
-                    GitHub ↗
-                </a>
-
-                <a href="mailto:k.krajput752@gmail.com">
-                    Email ↗
-                </a>
-            </div>
-
-        </div>
-
-        <!-- PROFILE PHOTO RIGHT -->
-        <div class="portrait">
-
-            <div class="light"></div>
-            <div class="edge"></div>
-
-            <img
-                src="kkun.jpeg"
-                alt="Kundan Profile Photo"
-            >
-
-        </div>
-
-        <a class="scroll" href="#about">SCROLL DOWN ↓</a>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-
-        <headerText>
-            <p>WHO I AM</p>
-            <h2>About <span>Me</span></h2>
-        </headerText>
-
-        <div class="about reveal">
-
-            <div>
-                <h3>Curious Mind. Creative Builder.</h3>
-
-                <p>
-                    I'm Kundan, a computer science student interested
-                    in Artificial Intelligence, Machine Learning,
-                    programming, and building useful digital experiences.
+                <p class="hero-description">
+                    Exploring the world of Artificial Intelligence,
+                    Machine Learning and Computer Science.
+                    Learning, building and growing every day.
                 </p>
 
-                <p>
-                    I am pursuing BS-MS in AI & Computer Science
-                    at IIT Patna and BTech in CSE (AI) at Lucknow University.
-                </p>
+                <div class="hero-buttons">
+                    <a href="#about" class="primary-btn">
+                        Explore My World ↗
+                    </a>
 
-                <p>
-                    I enjoy learning new technologies, solving problems,
-                    and turning ideas into projects.
-                </p>
-            </div>
-
-            <aside>
-                <div>
-                    <b>AI</b>
-                    <small>Focus Area</small>
+                    <a href="resume.pdf" target="_blank" class="secondary-btn">
+                        View Resume ↓
+                    </a>
                 </div>
 
-                <div>
-                    <b>CS</b>
-                    <small>Core Interest</small>
+                <div class="social-links">
+                    <a href="https://github.com/kkrajput752"
+                       target="_blank" rel="noopener noreferrer">
+                        GitHub ↗
+                    </a>
+
+                    <a href="mailto:k.krajput752@gmail.com">
+                        Email ↗
+                    </a>
                 </div>
 
-                <div>
-                    <b>∞</b>
-                    <small>Learning Ahead</small>
+            </div>
+
+            <div class="hero-scroll">
+                <span></span>
+                SCROLL TO EXPLORE
+            </div>
+
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+
+            <div class="section-heading reveal">
+                <p class="eyebrow">GET TO KNOW ME</p>
+                <h2>About <span>Me</span></h2>
+            </div>
+
+            <div class="about-card reveal">
+
+                <p>
+                    I'm Kundan Krishnan, a student passionate about
+                    Artificial Intelligence and Computer Science.
+                    I am currently pursuing BS-MS in AI & CS at IIT Patna
+                    and BTech in Computer Science & Engineering (AI)
+                    at Lucknow University.
+                </p>
+
+                <p>
+                    I enjoy learning programming, understanding algorithms,
+                    exploring AI technologies and developing my technical skills.
+                    My goal is to turn ideas into meaningful technology.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section" id="education">
+
+            <div class="section-heading reveal">
+                <p class="eyebrow">MY ACADEMIC JOURNEY</p>
+                <h2>My <span>Education</span></h2>
+            </div>
+
+            <div class="timeline">
+
+                <article class="timeline-card reveal">
+
+                    <span class="timeline-dot"></span>
+
+                    <p class="card-tag">BS-MS PROGRAM</p>
+
+                    <h3>Indian Institute of Technology, Patna</h3>
+
+                    <p>
+                        BS-MS in Artificial Intelligence & Computer Science
+                    </p>
+
+                    <span class="card-year">Currently Pursuing</span>
+
+                </article>
+
+                <article class="timeline-card reveal">
+
+                    <span class="timeline-dot"></span>
+
+                    <p class="card-tag">UNDERGRADUATE PROGRAM</p>
+
+                    <h3>Lucknow University</h3>
+
+                    <p>
+                        BTech in Computer Science & Engineering (AI)
+                    </p>
+
+                    <span class="card-year">2025 – 2029</span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills">
+
+            <div class="section-heading reveal">
+                <p class="eyebrow">WHAT I'M LEARNING</p>
+                <h2>Technical <span>Skills</span></h2>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="skill-card reveal">
+                    <span>01</span>
+                    <h3>C / C++</h3>
+                    <p>Programming fundamentals and problem solving</p>
                 </div>
-            </aside>
 
-        </div>
+                <div class="skill-card reveal">
+                    <span>02</span>
+                    <h3>Python</h3>
+                    <p>Programming and computational thinking</p>
+                </div>
 
-    </section>
+                <div class="skill-card reveal">
+                    <span>03</span>
+                    <h3>HTML / CSS</h3>
+                    <p>Web development fundamentals</p>
+                </div>
 
-    <!-- EDUCATION -->
-    <section class="section" id="education">
+                <div class="skill-card reveal">
+                    <span>04</span>
+                    <h3>JavaScript</h3>
+                    <p>Interactive web development fundamentals</p>
+                </div>
 
-        <headerText>
-            <p>MY JOURNEY</p>
-            <h2>Education</h2>
-        </headerText>
+                <div class="skill-card reveal">
+                    <span>05</span>
+                    <h3>DSA</h3>
+                    <p>Data structures and algorithms</p>
+                </div>
 
-        <div class="timeline">
+                <div class="skill-card reveal">
+                    <span>06</span>
+                    <h3>AI & ML</h3>
+                    <p>Artificial Intelligence and Machine Learning</p>
+                </div>
 
-            <article class="panel reveal">
+            </div>
 
-                <small>2025 – 2029</small>
+        </section>
 
-                <h3>BS-MS · AI & Computer Science</h3>
+        <!-- CONTACT -->
+        <section class="section contact-section" id="contact">
 
-                <h4>Indian Institute of Technology Patna</h4>
+            <div class="section-heading reveal">
+                <p class="eyebrow">LET'S CONNECT</p>
+                <h2>Get In <span>Touch</span></h2>
+            </div>
+
+            <div class="contact-card reveal">
+
+                <h3>Have an idea? Let's connect.</h3>
 
                 <p>
-                    Exploring mathematics, statistics, algorithms,
-                    data analytics, optimization and AI.
+                    I'm always interested in learning, technology
+                    and meaningful connections.
                 </p>
 
-            </article>
+                <a href="mailto:k.krajput752@gmail.com" class="primary-btn">
+                    Send Me an Email ↗
+                </a>
 
-            <article class="panel reveal">
+                <a href="https://github.com/kkrajput752"
+                   target="_blank" rel="noopener noreferrer"
+                   class="github-link">
+                    Explore my GitHub ↗
+                </a>
 
-                <small>2025 – 2029</small>
+            </div>
 
-                <h3>BTech · Computer Science (AI)</h3>
+        </section>
 
-                <h4>Lucknow University</h4>
-
-                <p>
-                    Developing strong foundations in programming,
-                    computer science and artificial intelligence.
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section" id="skills">
-
-        <headerText>
-            <p>WHAT I'M LEARNING</p>
-            <h2>Technical <span>Skills</span></h2>
-        </headerText>
-
-        <div class="skills">
-
-            <article class="panel reveal">
-                <b>🐍</b>
-                <h3>Python</h3>
-                <p>Programming fundamentals</p>
-            </article>
-
-            <article class="panel reveal">
-                <b>⌨️</b>
-                <h3>C / C++</h3>
-                <p>Programming & DSA</p>
-            </article>
-
-            <article class="panel reveal">
-                <b>🧠</b>
-                <h3>AI / ML</h3>
-                <p>Foundations & concepts</p>
-            </article>
-
-            <article class="panel reveal">
-                <b>🌐</b>
-                <h3>HTML / CSS</h3>
-                <p>Web development</p>
-            </article>
-
-            <article class="panel reveal">
-                <b>📊</b>
-                <h3>Data Analytics</h3>
-                <p>Statistics & data analysis</p>
-            </article>
-
-            <article class="panel reveal">
-                <b>⚡</b>
-                <h3>Problem Solving</h3>
-                <p>Logic & algorithms</p>
-            </article>
-
-        </div>
-
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section contact" id="contact">
-
-        <headerText>
-            <p>LET'S CONNECT</p>
-            <h2>Contact <span>Me</span></h2>
-        </headerText>
-
-        <div class="contactbox reveal">
-
-            <h3>Let's connect and create something meaningful.</h3>
-
-            <p>
-                Open to learning, collaboration and exciting opportunities.
-            </p>
-
-            <a class="btn black" href="mailto:k.krajput752@gmail.com">
-                k.krajput752@gmail.com ↗
-            </a>
-
-            <p>Lucknow, Uttar Pradesh, India</p>
-
-            <a href="https://github.com/kkrajput752" target="_blank">
-                github.com/kkrajput752 ↗
-            </a>
-
-        </div>
-
-    </section>
+    </main>
 
     <!-- FOOTER -->
     <footer>
-        <b>&lt;K/&gt;</b>
-        <p>Designed & built by Kundan</p>
-        <p>© <span id="year"></span> All rights reserved.</p>
+        <p>
+            © <span id="year"></span> Kundan Krishnan.
+            All rights reserved.
+        </p>
+
+        <a href="#home">Back to top ↑</a>
     </footer>
 
     <script src="script.js"></script>

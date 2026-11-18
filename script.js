@@ -1,94 +1,248 @@
 
-const typing = document.getElementById('typing');
+// ====================================
+// INTRO ANIMATION
+// ====================================
 
-const roles = [
-    'AI/ML Enthusiast',
-    'Computer Science Student',
-    'Python Developer',
-    'Problem Solver'
-];
+const intro = document.getElementById("intro");
 
-let r = 0;
-let c = 0;
-let deleting = false;
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        intro.style.display = "none";
+    }, 4100);
+});
 
-function type() {
 
-    let current = roles[r];
+// ====================================
+// DARK AND LIGHT MODE
+// ====================================
 
-    typing.textContent = current.slice(
-        0,
-        c + (deleting ? -1 : 1)
-    );
+const themeToggle = document.getElementById("themeToggle");
 
-    c += deleting ? -1 : 1;
+const savedTheme = localStorage.getItem("portfolio-theme");
 
-    if (!deleting && c === current.length) {
-        deleting = true;
-        setTimeout(type, 1300);
-        return;
-    }
-
-    if (deleting && c === 0) {
-        deleting = false;
-        r = (r + 1) % roles.length;
-        setTimeout(type, 350);
-        return;
-    }
-
-    setTimeout(type, deleting ? 45 : 95);
+if (savedTheme === "light") {
+    document.body.classList.replace("dark", "light");
+    themeToggle.textContent = "🌙 Dark";
 }
 
-type();
+themeToggle.addEventListener("click", () => {
 
-/* MOBILE MENU */
+    const isLight = document.body.classList.toggle("light");
 
-const menu = document.getElementById('menuBtn');
-const links = document.getElementById('navLinks');
+    document.body.classList.toggle("dark", !isLight);
 
-menu.addEventListener('click', () => {
+    themeToggle.textContent = isLight
+        ? "🌙 Dark"
+        : "☀️ Light";
 
-    links.classList.toggle('active');
-
-    menu.textContent =
-        links.classList.contains('active') ? '✕' : '☰';
-
-});
-
-links.querySelectorAll('a').forEach(a => {
-
-    a.addEventListener('click', () => {
-        links.classList.remove('active');
-        menu.textContent = '☰';
-    });
+    localStorage.setItem(
+        "portfolio-theme",
+        isLight ? "light" : "dark"
+    );
 
 });
 
-/* COPYRIGHT YEAR */
 
-document.getElementById('year').textContent =
-    new Date().getFullYear();
+// ====================================
+// TYPING ANIMATION
+// ====================================
 
-/* SCROLL REVEAL */
+const words = [
+    "AI & CS Student",
+    "Future AI Engineer",
+    "Programmer",
+    "Technology Enthusiast"
+];
 
-const observer = new IntersectionObserver(entries => {
+const typingElement = document.getElementById("typing");
 
-    entries.forEach(entry => {
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
 
-        if (entry.isIntersecting) {
+function typeEffect() {
 
-            entry.target.classList.add('visible');
+    const currentWord = words[wordIndex];
 
-            observer.unobserve(entry.target);
+    if (!deleting) {
 
+        typingElement.textContent =
+            currentWord.substring(0, charIndex + 1);
+
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1200);
+            return;
         }
 
+    } else {
+
+        typingElement.textContent =
+            currentWord.substring(0, charIndex - 1);
+
+        charIndex--;
+
+        if (charIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+
+    }
+
+    setTimeout(typeEffect, deleting ? 45 : 90);
+
+}
+
+typeEffect();
+
+
+// ====================================
+// MOBILE NAVIGATION
+// ====================================
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+
+});
+
+document.querySelectorAll("#navLinks a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("open");
+
+        menuToggle.textContent = "☰";
+
+        menuToggle.setAttribute("aria-expanded", "false");
+
     });
 
-}, {
-    threshold: 0.12
 });
 
-document.querySelectorAll('.reveal').forEach(element => {
+
+// ====================================
+// SCROLL REVEAL ANIMATION
+// ====================================
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+document.querySelectorAll(".reveal").forEach(element => {
     observer.observe(element);
 });
+
+
+// ====================================
+// CINEMATIC SCROLL PHOTO EFFECT
+// ====================================
+
+const photo = document.getElementById("backgroundPhoto");
+
+let ticking = false;
+
+function updatePhotoPosition() {
+
+    const scrollTop = window.scrollY;
+
+    const maxScroll =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const progress = maxScroll > 0
+        ? Math.min(Math.max(scrollTop / maxScroll, 0), 1)
+        : 0;
+
+    /*
+       At top:
+       Face visible.
+
+       As visitor scrolls:
+       Image framing moves toward lower body.
+
+       At bottom:
+       Lower portion becomes visible.
+    */
+
+    const startPosition = 8;
+    const endPosition = 100;
+
+    // Smoothstep easing
+    const smoothProgress =
+        progress * progress * (3 - 2 * progress);
+
+    const photoPosition =
+        startPosition +
+        (endPosition - startPosition) * smoothProgress;
+
+    photo.style.setProperty(
+        "--photo-y",
+        `${photoPosition}%`
+    );
+
+    ticking = false;
+
+}
+
+function requestPhotoUpdate() {
+
+    if (!ticking) {
+
+        window.requestAnimationFrame(updatePhotoPosition);
+
+        ticking = true;
+
+    }
+
+}
+
+window.addEventListener(
+    "scroll",
+    requestPhotoUpdate,
+    { passive: true }
+);
+
+window.addEventListener(
+    "resize",
+    requestPhotoUpdate
+);
+
+updatePhotoPosition();
+
+
+// ====================================
+// CURRENT YEAR
+// ====================================
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
